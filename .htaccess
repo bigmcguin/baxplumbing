@@ -22,3 +22,11 @@ DirectoryIndex index.html
   RewriteEngine On
   RewriteRule (^|/)\.(?!well-known(/|$)) - [F]
 </IfModule>
+
+# Pages: browsers must check for a fresh copy every time, so updates show
+# straight away. CSS and JS links carry a ?v= version instead (see README).
+<IfModule mod_headers.c>
+  <FilesMatch "(?i)\.html?$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
+</IfModule>
