@@ -174,7 +174,7 @@ main {
   display: grid;
   gap: var(--space-6);
   padding-top: var(--space-8);
-  padding-bottom: var(--space-6);
+  padding-bottom: var(--space-5);
 }
 
 .hero h1 {
@@ -207,13 +207,30 @@ main {
   font-size: var(--text-sm);
 }
 
-/* Skyline: the ranges and mine stacks of Mount Isa, cut out of the page
-   colour so the page below rises into the hero like the horizon. */
-.hero__skyline {
+/*
+  Hero photo: the trucks on red dirt. The cobalt band fades into the photo's
+  own sky, so the hero reads as one outback sky from the headline down.
+*/
+.hero__photo {
+  position: relative;
+  margin: 0;
+  height: clamp(15rem, 44vw, 36rem);
+}
+
+.hero__photo img {
   width: 100%;
-  height: clamp(4.5rem, 11vw, 9rem);
-  color: var(--colour-paper);
-  margin-bottom: -1px;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 42%;
+}
+
+.hero__photo::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 45%;
+  background: linear-gradient(var(--colour-sky), transparent);
+  pointer-events: none;
 }
 
 @media (min-width: 900px) {
@@ -637,19 +654,21 @@ main {
   color: var(--colour-ink-muted);
 }
 
-/* Portrait photos stay narrow so they never look stretched */
-.photo--portrait {
-  max-width: 22rem;
-}
-
-.with-photo {
+/* Equipment gallery (About page): one wide photo over two */
+.gallery {
   display: grid;
   gap: var(--space-6);
-  margin-top: var(--space-7);
 }
 
-.with-photo h2 {
-  margin-top: 0;
+.gallery .photo {
+  max-width: none;
+}
+
+/* The wide photo is cropped to a letterbox so it shows the gear, not the dirt */
+.gallery__wide img {
+  aspect-ratio: 2 / 1;
+  object-fit: cover;
+  object-position: 50% 60%;
 }
 
 .contact-grid {
@@ -658,11 +677,6 @@ main {
 }
 
 @media (min-width: 900px) {
-  .with-photo {
-    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
-    align-items: start;
-  }
-
   .contact-grid {
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     align-items: start;
@@ -671,5 +685,15 @@ main {
   /* Contact details stack in one column beside the photo */
   .contact-grid .details {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 768px) {
+  .gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .gallery__wide {
+    grid-column: 1 / -1;
   }
 }

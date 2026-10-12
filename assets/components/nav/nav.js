@@ -16,9 +16,12 @@
      the site is served from public_html or a subfolder.
      To link to a section of a page, add its id after a #, for example
      { label: 'Contact', href: 'index.html#contact' }.
+     logo is optional: a path from the site root to an image shown
+     beside the site name. Leave it out (or set it to '') for text only.
      ------------------------------------------------------------------ */
   var NAV_CONFIG = {
     siteName: 'Bax Plumbing',
+    logo: 'assets/images/bax-logo.webp',
     menuLabel: 'Main',
     items: [
       { label: 'Home', href: 'index.html' },
@@ -75,7 +78,8 @@
       '<div class="site-nav__frame">' +
       '<div class="site-nav__bar">' +
         '<a class="site-nav__brand" href="' + resolve('index.html').href + '">' +
-          escapeHtml(NAV_CONFIG.siteName) + '</a>' +
+          (NAV_CONFIG.logo ? '<img class="site-nav__logo" src="' + resolve(NAV_CONFIG.logo).href + '" alt="">' : '') +
+          '<span class="site-nav__name">' + escapeHtml(NAV_CONFIG.siteName) + '</span></a>' +
         '<button class="site-nav__toggle" type="button" aria-expanded="false"' +
           ' aria-controls="' + MENU_ID + '" aria-label="Menu">' +
           '<span class="site-nav__icon" aria-hidden="true"></span>' +
