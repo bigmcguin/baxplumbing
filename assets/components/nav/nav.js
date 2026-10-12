@@ -72,6 +72,7 @@
     header.classList.add('site-header');
     header.innerHTML =
       '<a class="site-nav__skip" href="#main">Skip to main content</a>' +
+      '<div class="site-nav__frame">' +
       '<div class="site-nav__bar">' +
         '<a class="site-nav__brand" href="' + resolve('index.html').href + '">' +
           escapeHtml(NAV_CONFIG.siteName) + '</a>' +
@@ -83,6 +84,7 @@
           escapeHtml(NAV_CONFIG.menuLabel) + '">' +
           '<ul class="site-nav__list">' + items + '</ul>' +
         '</nav>' +
+      '</div>' +
       '</div>';
   }
 
@@ -130,7 +132,7 @@
       }
     });
 
-    // Space to leave above a section so the sticky header never covers it.
+    // Space to leave above a section so the fixed header never covers it.
     // Comes from scroll-margin-top in nav.css.
     function headerOffset(target) {
       var margin = parseFloat(getComputedStyle(target).scrollMarginTop);

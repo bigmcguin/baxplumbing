@@ -5,13 +5,19 @@
   Breakpoint: the mobile menu applies under 768 px. This must match
   DESKTOP_QUERY in nav.js.
 
-  Do not add transform, filter or backdrop-filter to .site-header: they
-  would trap the fixed mobile panel inside the header.
+  How the bar stays at the top: the <header data-site-nav> element stays in
+  the page as a spacer of the bar's height, and .site-nav__frame inside it
+  is position: fixed. This replaces position: sticky, which on iPhone
+  (Safari, and Chrome, which uses the same engine) could slide out of view
+  or hide under the address bar when scrolling back up.
+
+  Do not add transform, filter or backdrop-filter to .site-header or
+  .site-nav__frame: they would trap the fixed mobile panel inside them.
 */
 
 /*
   Sections reached from a link (in the menu, in the page, or from another
-  page) stop just below the sticky header instead of underneath it.
+  page) stop just below the fixed header instead of underneath it.
   Set on elements with an id rather than as scroll-padding on <html>:
   scroll-padding makes the page jump when the header itself gets focus.
 */
@@ -19,18 +25,28 @@
   scroll-margin-top: calc(var(--nav-bar-height) + var(--space-4));
 }
 
-/* Reserve the bar's space before the script runs, so the page does not jump. */
+/*
+  The header element is a spacer: it holds the bar's space in the page
+  (before and after the script runs) so content never sits under the bar.
+*/
 [data-site-nav] {
-  min-height: var(--nav-bar-height);
+  display: block;
+  min-height: calc(var(--nav-bar-height) + 1px);
 }
 
 .site-header {
-  position: sticky;
+  font-family: var(--font-body);
+}
+
+/* The bar itself, pinned to the top of the screen */
+.site-nav__frame {
+  position: fixed;
   top: 0;
+  right: 0;
+  left: 0;
   z-index: var(--z-nav);
   background: var(--colour-paper);
   border-bottom: 1px solid var(--colour-line);
-  font-family: var(--font-body);
 }
 
 .site-nav__bar {
@@ -46,10 +62,10 @@
 
 /* Skip link: hidden until it receives keyboard focus */
 .site-nav__skip {
-  position: absolute;
+  position: fixed;
   top: var(--space-2);
   left: var(--space-2);
-  z-index: 1;
+  z-index: calc(var(--z-nav) + 1);
   padding: var(--space-2) var(--space-4);
   background: var(--colour-accent);
   color: var(--colour-on-accent);
@@ -235,7 +251,7 @@
 /*
   Stops the page behind the open mobile menu from scrolling.
   Lock <html> only: putting overflow: hidden on <body> as well makes the body
-  its own scroll container, which breaks the sticky header on scrolled pages.
+  its own scroll container, which used to break the header on scrolled pages.
 */
 html.site-nav-lock {
   overflow: hidden;
