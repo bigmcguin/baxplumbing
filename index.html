@@ -3,34 +3,147 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Home | Site name</title>
-  <meta name="description" content="A plain HTML, CSS and JavaScript starting point for a new website.">
+  <title>Bax Plumbing | Plumbers and gas fitters in Mount Isa</title>
+  <meta name="description" content="Bax Plumbing: hot water, gas fitting, drain clearing, drain cameras and backflow prevention for homes, businesses and industry in Mount Isa. Local for more than 40 years.">
+  <link rel="preload" href="assets/fonts/archivo-variable-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/css/theme.css">
   <link rel="stylesheet" href="assets/css/main.css">
   <link rel="stylesheet" href="assets/components/nav/nav.css">
   <script src="assets/components/nav/nav.js" defer></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Plumber",
+    "name": "Bax Plumbing Pty Ltd",
+    "telephone": "+61 450 484 468",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "37A Barkly Highway",
+      "addressLocality": "Miles End",
+      "addressRegion": "QLD",
+      "postalCode": "4825",
+      "addressCountry": "AU"
+    },
+    "areaServed": "Mount Isa",
+    "sameAs": ["https://www.facebook.com/BaxPlumbingContractors/"]
+  }
+  </script>
 </head>
 <body>
   <header data-site-nav></header>
 
-  <main id="main" class="page" tabindex="-1">
-    <h1>A starting point for a new website</h1>
-    <p class="lede">This page is a placeholder. Swap in the site's real name, colours and words, and it is ready to publish.</p>
+  <main id="main" tabindex="-1">
+    <section class="hero sky" aria-labelledby="hero-title">
+      <div class="wrap hero__inner">
+        <div>
+          <h1 id="hero-title">Plumbing and gas for Mount Isa</h1>
+          <p class="lede">Hot water, gas fitting, drains and backflow for homes, businesses and industrial sites. A local Isa business for more than 40 years.</p>
+        </div>
+        <div class="hero__call">
+          <a class="btn btn--call hero__phone" href="tel:+61450484468">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1L6.6 10.8Z"/></svg>
+            0450 484 468
+          </a>
+          <p class="hero__note muted">Monday to Friday. After-hours call-outs for emergencies.</p>
+        </div>
+      </div>
+      <svg class="hero__skyline" viewBox="0 0 1440 140" preserveAspectRatio="xMidYMax slice" aria-hidden="true" focusable="false">
+        <path fill="currentColor" d="M0 112 L90 96 L170 104 L260 78 L330 88 L410 62 L470 74 L540 58 L610 80 L690 70 L760 90 L840 84 L905 98 L905 22 L917 22 L917 98 L955 96 L955 48 L964 48 L964 96 L1010 92 L1090 70 L1160 82 L1230 64 L1300 86 L1370 80 L1440 92 L1440 140 L0 140 Z"/>
+      </svg>
+    </section>
 
-    <h2>Making it your own</h2>
-    <ol class="steps">
-      <li>Set the site's colours, fonts and spacing in <code>assets/css/theme.css</code>.</li>
-      <li>Change the site name and menu items in the config at the top of <code>assets/components/nav/nav.js</code>.</li>
-      <li>Replace the text on this page and on the About page.</li>
-      <li>Add new pages by copying the head and header from an existing page, then add one line to the menu config.</li>
-    </ol>
+    <section class="section" aria-labelledby="services-title">
+      <div class="wrap split">
+        <div class="section__head">
+          <h2 id="services-title">What we do</h2>
+          <p>Licensed plumbers and gas fitters, with the gear to find and fix problems underground as well as above it.</p>
+          <a class="btn btn--plain" href="services.html">All services</a>
+        </div>
+        <ul class="pipe-run">
+          <li>
+            <h3><a href="services.html#hot-water">Hot water systems</a></h3>
+            <p>Electric, gas and solar systems supplied, installed, repaired and replaced.</p>
+          </li>
+          <li>
+            <h3><a href="services.html#gas">Gas fitting</a></h3>
+            <p>New gas lines, appliance connections, leak checks and repairs by licensed gas fitters.</p>
+          </li>
+          <li>
+            <h3><a href="services.html#drains">Blocked drains</a></h3>
+            <p>Drains cleared with an electric drain machine or a high-pressure hydro jetter.</p>
+          </li>
+          <li>
+            <h3><a href="services.html#camera">Drain camera inspections</a></h3>
+            <p>A camera down the line shows exactly where the blockage, crack or root is before anyone digs.</p>
+          </li>
+          <li>
+            <h3><a href="services.html#sewer">Sewer and stormwater drainage</a></h3>
+            <p>New drainage, repairs and replacement for houses, commercial sites and new builds.</p>
+          </li>
+          <li>
+            <h3><a href="services.html#backflow">Backflow prevention</a></h3>
+            <p>Devices that stop dirty water flowing back into the town supply, installed and maintained.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
 
-    <h2>Publishing</h2>
-    <p>Hostinger copies this repository into <code>public_html</code> whenever <code>main</code> changes, so merging a pull request publishes it straight away.</p>
+    <section class="section" aria-labelledby="sectors-title">
+      <div class="wrap">
+        <div class="section__head">
+          <h2 id="sectors-title">Homes, businesses and industry</h2>
+        </div>
+        <ul class="sectors">
+          <li>
+            <h3>Homes</h3>
+            <p>Leaking taps, burst pipes, a hot water system that has given up, or plumbing for a renovation.</p>
+          </li>
+          <li>
+            <h3>Businesses</h3>
+            <p>Maintenance and repairs for shops, offices, rentals and commercial kitchens, with minimal disruption to trade.</p>
+          </li>
+          <li>
+            <h3>Industrial sites</h3>
+            <p>Plumbing, drainage and gas work for industrial and mining-related sites around the Isa.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="sky call-band" aria-labelledby="call-title">
+      <div class="wrap call-band__inner">
+        <div>
+          <h2 id="call-title">Water where it shouldn’t be?</h2>
+          <p class="lede">Call us. You’ll talk to a local plumber who can tell you what happens next.</p>
+        </div>
+        <div class="call-band__actions">
+          <a class="btn btn--call" href="tel:+61450484468">Call 0450 484 468</a>
+          <a class="btn btn--plain" href="contact.html">Find our yard</a>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer class="site-footer">
-    <p>Site name</p>
+    <div class="wrap site-footer__inner">
+      <div>
+        <p class="site-footer__name">Bax Plumbing</p>
+        <p>Licensed plumbing and gas fitting in Mount Isa.</p>
+      </div>
+      <div>
+        <p><a href="tel:+61450484468">0450 484 468</a></p>
+        <p>37A Barkly Highway, Miles End QLD 4825</p>
+      </div>
+      <div>
+        <p>Monday to Friday</p>
+        <p>After-hours emergencies</p>
+        <p><a href="https://www.facebook.com/BaxPlumbingContractors/">Facebook</a></p>
+      </div>
+    </div>
   </footer>
+
+  <div class="call-bar">
+    <a class="btn btn--call" href="tel:+61450484468">Call 0450 484 468</a>
+  </div>
 </body>
 </html>
